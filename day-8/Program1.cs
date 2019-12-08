@@ -11,7 +11,7 @@ namespace day_8
             var input = File.ReadAllText("input.txt");
             //Console.WriteLine(input);
             int pos = 0;
-            int minzeros = 1000000;
+            int minzeros = input.Length;
             int mones = 0;
             int mtwos = 0;
             //Console.WriteLine(input.Length);
@@ -24,13 +24,12 @@ namespace day_8
                 if (zeros < minzeros)
                 {
                     //Console.WriteLine(zeros);
-                    mones = ones;
-                    mtwos = twos;
-                    minzeros = zeros;
+                    (mones, mtwos, minzeros) = (ones, twos, zeros);
                 }
                 pos += 25 * 6;
             }
             Console.WriteLine(mones * mtwos);
+            //1206
         }
     }
 }

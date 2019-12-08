@@ -15,11 +15,11 @@ namespace day_8
             var lmax = 6; var cmax = 25;
             //var lmax = 2; var cmax = 2;
 
-            char[,] img = new char[lmax, cmax];
+            var img = new char[lmax, cmax];
             for (int l = 0; l < lmax; l++)
                 for (int c = 0; c < cmax; c++)
                 {
-                    img[l, c] = '-';
+                    img[l, c] = '2';
                 }
             int pos = 0;
             while (pos < input.Length)
@@ -29,7 +29,7 @@ namespace day_8
                 for (int l = 0; l < lmax; l++)
                     for (int c = 0; c < cmax; c++)
                     {
-                        if (img[l, c] != '0' && img[l, c] != '1')
+                        if (img[l, c] == '2')
                             img[l, c] = r[l * cmax + c];
                     }
 
