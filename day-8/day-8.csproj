@@ -4,7 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>day_8</RootNamespace>
-    <StartupObject>day_8.Program2</StartupObject>
+    <StartupObject>day_8.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>

@@ -5,16 +5,10 @@ using System.Linq;
 
 namespace day_8
 {
-    class Program2
+    class Problem2
     {
-        static void Main(string[] args)
+        public static void Run(string input, int lmax, int cmax)
         {
-            var input = File.ReadAllText("input.txt");
-            //var input = File.ReadAllText("input-test.txt");
-
-            var lmax = 6; var cmax = 25;
-            //var lmax = 2; var cmax = 2;
-
             var img = new char[lmax, cmax];
             for (int l = 0; l < lmax; l++)
                 for (int c = 0; c < cmax; c++)
@@ -37,7 +31,6 @@ namespace day_8
             }
             show(lmax, cmax, img);
             draw(lmax, cmax, img);
-            //EJRGP
         }
 
         private static void show(int lmax, int cmax, char[,] img)

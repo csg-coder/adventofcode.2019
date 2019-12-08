@@ -4,32 +4,28 @@ using System.Linq;
 
 namespace day_8
 {
-    class Program1
+    class Problem1
     {
-        static void Main(string[] args)
+        public static int Run(string input, int lmax, int cmax)
         {
-            var input = File.ReadAllText("input.txt");
-            //Console.WriteLine(input);
             int pos = 0;
             int minzeros = input.Length;
             int mones = 0;
             int mtwos = 0;
-            //Console.WriteLine(input.Length);
             while (pos < input.Length)
             {
-                var r = input.Substring(pos, 25 * 6);
+                var r = input.Substring(pos, cmax * lmax);
                 var zeros = r.Where(c => c == '0').Count();
                 var ones = r.Where(c => c == '1').Count();
                 var twos = r.Where(c => c == '2').Count();
                 if (zeros < minzeros)
                 {
-                    //Console.WriteLine(zeros);
                     (mones, mtwos, minzeros) = (ones, twos, zeros);
                 }
-                pos += 25 * 6;
+                pos += cmax * lmax;
             }
-            Console.WriteLine(mones * mtwos);
-            //1206
+            return mones * mtwos;
+
         }
     }
 }
