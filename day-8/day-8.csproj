@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
+    <PackageReference Include="xunit.assert" Version="2.4.1" />
   </ItemGroup>
 
   <ItemGroup>
