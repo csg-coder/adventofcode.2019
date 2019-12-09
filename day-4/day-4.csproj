@@ -2,8 +2,9 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>console_app</RootNamespace>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <RootNamespace>day_4</RootNamespace>
+    <StartupObject>day_4.Program</StartupObject>
   </PropertyGroup>
 
 </Project>

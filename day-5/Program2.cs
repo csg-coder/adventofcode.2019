@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace console_app_5
+namespace day_5
 {
     class Program2
     {
