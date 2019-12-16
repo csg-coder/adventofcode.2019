@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace day_16
@@ -8,15 +9,15 @@ namespace day_16
         static void Main(string[] args)
         {
             var puzzle = "59728776137831964407973962002190906766322659303479564518502254685706025795824872901465838782474078135479504351754597318603898249365886373257507600323820091333924823533976723324070520961217627430323336204524247721593859226704485849491418129908885940064664115882392043975997862502832791753443475733972832341211432322108298512512553114533929906718683734211778737511609226184538973092804715035096933160826733751936056316586618837326144846607181591957802127283758478256860673616576061374687104534470102346796536051507583471850382678959394486801952841777641763547422116981527264877636892414006855332078225310912793451227305425976335026620670455240087933409";
-
+            //Console.WriteLine(puzzle.Length);
             Assert.Equal("01029498", Solve1("12345678", 4));
             Assert.Equal("24176176", Solve1("80871224585914546619083218645595", 100));
             Assert.Equal("73745418", Solve1("19617804207202209144916044189917", 100));
             Assert.Equal("52432133", Solve1("69317163492948606335995924319873", 100));
             Assert.Equal("76795888", Solve1(puzzle, 100));
 
-            //Assert.Equal("03036732", );
-            //Solve2("80871224585914546619083218645595", 10);
+            //Assert.Equal("84462026", Solve2("03036732577212944063491565474664", 100));
+
         }
 
         static string Solve1(string input, int phases)
@@ -30,7 +31,7 @@ namespace day_16
             }
 
             for (int i = 0; i < phases; i++)
-                Run(num);
+                Run(num, 0);
 
             string output = tostring(num).Replace(" ", "");
             Console.WriteLine(output);
@@ -49,8 +50,8 @@ namespace day_16
                     num[i + rep * input.Length] = val;
             }
 
-            for (int i = 0; i <phases ; i++)
-                Run(num);
+            for (int i = 0; i < phases; i++)
+                Run(num, 0303673);
 
             string output = tostring(num).Replace(" ", "");
             Console.WriteLine(output);
@@ -68,12 +69,18 @@ namespace day_16
             return output;
         }
 
-        private static void Run(byte[] num)
+        private static void Run(byte[] num, int start)
         {
-            //byte[] origin = num.Clone() as byte[];
-
-            for (int i = 0; i < num.Length; i++)
+            byte[] origin = num.Clone() as byte[];
+            
+            var reporting = 1000;
+            Console.WriteLine($"total: {(num.Length-start) / reporting} times start at {DateTime.Now}");
+            Parallel.For(start, num.Length, (int i) =>
             {
+                //Console.WriteLine(i);
+                //});
+                //for (int i = start; i < num.Length; i++)
+                //{
 
                 int sum1 = 0;
                 int sum2 = 0;
@@ -83,17 +90,19 @@ namespace day_16
                 for (int pos = i; pos < num.Length; pos += rep * 4)
                     for (int idx = 0; idx < rep; idx++)
                         if (pos + idx < num.Length)
-                            sum1 += num[pos + idx];
+                            sum1 += origin[pos + idx];
 
                 //find the patterns with -1
                 for (int pos = i + rep * 2; pos < num.Length; pos += rep * 4)
                     for (int idx = 0; idx < rep; idx++)
                         if (pos + idx < num.Length)
-                            sum2 += num[pos + idx];
+                            sum2 += origin[pos + idx];
 
                 num[i] = (byte)(Math.Abs((sum1 - sum2) % 10));
-
-            }
+                if (i % reporting == 0)
+                    Console.Write(".");
+            });
+            Console.WriteLine($"ended at {DateTime.Now}");
 
             //Console.WriteLine(tostring(num));
         }
