@@ -15,7 +15,8 @@ namespace day_16
             Assert.Equal("52432133", Solve1("69317163492948606335995924319873", 100));
             Assert.Equal("76795888", Solve1(puzzle, 100));
 
-            //Assert.Equal("24176176", Solve2("80871224585914546619083218645595", 100));
+            //Assert.Equal("03036732", );
+            //Solve2("80871224585914546619083218645595", 10);
         }
 
         static string Solve1(string input, int phases)
@@ -36,6 +37,26 @@ namespace day_16
             return output;
         }
 
+        static string Solve2(string input, int phases)
+        {
+            var repeatinput = 10000;
+
+            byte[] num = new byte[input.Length * repeatinput];
+            for (int i = 0; i < input.Length; i++)
+            {
+                byte val = byte.Parse(input[i].ToString());
+                for (int rep = 0; rep < repeatinput; rep++)
+                    num[i + rep * input.Length] = val;
+            }
+
+            for (int i = 0; i <phases ; i++)
+                Run(num);
+
+            string output = tostring(num).Replace(" ", "");
+            Console.WriteLine(output);
+            return output;
+        }
+
         private static string tostring(byte[] num)
         {
             var output = "";
@@ -49,7 +70,7 @@ namespace day_16
 
         private static void Run(byte[] num)
         {
-            byte[] origin = num.Clone() as byte[];
+            //byte[] origin = num.Clone() as byte[];
 
             for (int i = 0; i < num.Length; i++)
             {
@@ -62,13 +83,13 @@ namespace day_16
                 for (int pos = i; pos < num.Length; pos += rep * 4)
                     for (int idx = 0; idx < rep; idx++)
                         if (pos + idx < num.Length)
-                            sum1 += origin[pos + idx];
+                            sum1 += num[pos + idx];
 
                 //find the patterns with -1
                 for (int pos = i + rep * 2; pos < num.Length; pos += rep * 4)
                     for (int idx = 0; idx < rep; idx++)
                         if (pos + idx < num.Length)
-                            sum2 += origin[pos + idx];
+                            sum2 += num[pos + idx];
 
                 num[i] = (byte)(Math.Abs((sum1 - sum2) % 10));
 
