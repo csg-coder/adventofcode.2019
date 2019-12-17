@@ -19,7 +19,7 @@ namespace day_16
             Assert.Equal("84462026", Solve2("03036732577212944063491565474664", 100));
             Assert.Equal("78725270", Solve2("02935109699940807407585447034323", 100));
             Assert.Equal("53553731", Solve2("03081770884921959731165446850517", 100));
-            //Solve2(puzzle, 100);
+            Assert.Equal("84024125", Solve2("puzzle", 100));//in 160minutes
 
         }
 
