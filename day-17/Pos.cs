@@ -1,4 +1,4 @@
-﻿namespace day_17
+﻿namespace day_18
 {
     public struct Pos
     {

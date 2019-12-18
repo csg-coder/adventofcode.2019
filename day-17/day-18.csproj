@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.0</TargetFramework>
-    <RootNamespace>day_17</RootNamespace>
+    <RootNamespace>day_18</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

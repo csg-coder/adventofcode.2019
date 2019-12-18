@@ -15,11 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "day-9", "day-9\day-9.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "day-5", "day-5\day-5.csproj", "{F65E2182-DEAC-455D-AC31-F445D95E9F3E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "day-14", "day-14\day-14.csproj", "{6AB38EDF-B62A-4AAA-B27F-B2E693089AAA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "day-14", "day-14\day-14.csproj", "{6AB38EDF-B62A-4AAA-B27F-B2E693089AAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "day-16", "day-16\day-16.csproj", "{2CE502E1-6268-4CAC-BB42-CE64C0C70058}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "day-16", "day-16\day-16.csproj", "{2CE502E1-6268-4CAC-BB42-CE64C0C70058}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "day-17", "day-17\day-17.csproj", "{CAFE71AF-7167-48E3-B560-3AF10E13AB81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "day-18", "day-17\day-18.csproj", "{CAFE71AF-7167-48E3-B560-3AF10E13AB81}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

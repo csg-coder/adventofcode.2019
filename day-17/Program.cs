@@ -3,7 +3,7 @@ using System.IO;
 using Xunit;
 
 
-namespace day_17
+namespace day_18
 {
     class Program
     {
@@ -44,6 +44,8 @@ namespace day_17
             Console.WriteLine($"start at {cpos.l},{cpos.c}");
 
         }
+
+
 
         static char[,] ToChars(string[] lines)
         {
