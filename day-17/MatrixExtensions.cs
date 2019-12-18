@@ -15,5 +15,9 @@ namespace day_17
                     act(new Pos { l = i, c = j });
             }
         }
+        public static char[,] Copy(this char[,] matrix)
+        {
+            return matrix.Clone() as char[,];
+        }
     }
 }

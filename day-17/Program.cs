@@ -28,7 +28,7 @@ namespace day_17
 
             Run(matrix);
 
-            Print(matrix);
+            Print(matrix.Copy());
             return 0;
         }
 
