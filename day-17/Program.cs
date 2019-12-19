@@ -1,10 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using Xunit;
 
 
 namespace day_18
 {
+    struct PosMin
+    {
+        public Pos Pos { get; set; }
+        public int Distance { get; set; }
+
+        public char Letter { get; set; }
+    }
+
     class Program
     {
 
@@ -19,6 +28,9 @@ namespace day_18
             //Assert.Equal(81, Solve("sample5.txt"));
             //Solve("input.txt");
         }
+
+        static Dictionary<char, Pos> keysPos;
+        static Dictionary<char, Pos> doorsPos;
 
         static int Solve(string inputfile)
         {
@@ -41,11 +53,78 @@ namespace day_18
                      cpos = pos;
              });
 
+            keysPos = new Dictionary<char, Pos>();
+            doorsPos = new Dictionary<char, Pos>();
+
+            //detect keys
+            matrix.Op((Pos pos) =>
+            {
+                var c = matrix.At(pos);
+                if ('a' <= c && c <= 'z')
+                    keysPos[c] = pos;
+            });
+            //detect doors
+            matrix.Op((Pos pos) =>
+            {
+                var c = matrix.At(pos);
+                if ('A' <= c && c <= 'Z')
+                    doorsPos[c] = pos;
+            });
+
+            
+
             Console.WriteLine($"start at {cpos.l},{cpos.c}");
+            Console.WriteLine($"{keysPos.Count} keys");
+            foreach (var item in keysPos)
+                Console.WriteLine($"{item.Key} at {item.Value.ToString()}");
+            Console.WriteLine($"{doorsPos.Count} doors");
+            foreach (var item in doorsPos)
+                Console.WriteLine($"{item.Key} at {item.Value.ToString()}");
+
+            List<PosMin> keysPosMin = EatKey(matrix, new List<PosMin>(), cpos, '@');
 
         }
 
+        private static List<PosMin> EatKey(char[,] matrix, List<PosMin> list, Pos cpos, char letter)
+        {
+            var work_matrix = matrix.Copy();
+            var work_list = new List<PosMin>(list);
 
+            //eat key
+            var key = new PosMin { Pos = cpos, Letter = letter };
+            if (letter == '@')
+                key.Distance = 0;
+            else
+            {
+                work_matrix[key.Pos.l, key.Pos.c] = '.';
+            }
+            //work_list.Add(new PosMin { Letter=letter,Pos cpos,}
+
+
+
+            List<PosMin> nextkeys = CalcMinRoadsToVisibleKeys(work_matrix, cpos);
+
+            //foreach (var key in nextkeys)
+            //{
+
+
+            //}
+
+            throw new NotImplementedException();
+
+        }
+
+        private static List<PosMin> CalcMinRoadsToVisibleKeys(char[,] matrix, Pos cpos)
+        {
+            throw new NotImplementedException();
+        }
+
+        static char[,] Shortest(char[,] matrix, Pos pos)
+        {
+            var work = matrix.Copy();
+
+            return work;
+        }
 
         static char[,] ToChars(string[] lines)
         {

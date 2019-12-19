@@ -19,5 +19,5 @@ namespace day_18
         {
             return matrix.Clone() as char[,];
         }
-    }
+      }
 }
