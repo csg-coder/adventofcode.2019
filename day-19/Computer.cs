@@ -80,7 +80,7 @@ namespace day_19
                     //Console.Write("give a number:");
                     //var inputs = Console.ReadLine();
                     var input = int.Parse(inputs[inputcursor++]);
-                    System.Console.WriteLine($"{input} was read");
+                    //System.Console.WriteLine($"{input} was read");
                     long poz1 = puzzle[i + 1] + rel1;
 
                     if (mode1 == 1)
@@ -103,7 +103,7 @@ namespace day_19
                     if (mode1 == 1)
                         poz1 = i + 1;
 
-                    Console.Write(puzzle[poz1]);
+                    //Console.Write(puzzle[poz1]);
                     ret += puzzle[poz1];
 
                     i += 2;
@@ -192,8 +192,8 @@ namespace day_19
                 else if (opcode == 99)
                 {
 
-                    Console.WriteLine();
-                    System.Console.WriteLine($"halt at {i} with ret={ret}");
+                    //Console.WriteLine();
+                    //System.Console.WriteLine($"halt at {i} with ret={ret}");
                     return ret;
                 }
                 else
