@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
     <RootNamespace>day_19</RootNamespace>
   </PropertyGroup>
 
@@ -10,4 +10,9 @@
     <PackageReference Include="xunit.assert" Version="2.4.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="sample-problem2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
